@@ -1,0 +1,15 @@
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.csproj.AssemblyReference.cache
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfoInputs.cache
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.AssemblyInfo.cs
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.csproj.CoreCompileInputs.cache
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Service.deps.json
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Service.dll
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Service.pdb
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Repository.dll
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\bin\Debug\netcoreapp3.1\Repository.pdb
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.csproj.CopyComplete
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.dll
+C:\Users\tahmi\source\repos\ConsoleApplicationCompanyTahmin\Service\obj\Debug\netcoreapp3.1\Service.pdb
