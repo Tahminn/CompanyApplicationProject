@@ -1,4 +1,6 @@
 ﻿using Domain.Models;
+using Repository.Data;
+using Repository.Exceptions;
 using Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,20 @@ namespace Repository.Implementation
 {
     public class CompanyRepository : IRepository<Company>
     {
-        public bool Creat(Company entity)
+        public bool Create(Company entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entity == null) throw new CustomException("Entity is null");
+
+                AppDbContext<Company>.datas.Add(entity);
+                return true;
+            }
+            catch (Exception ex)
+            {              
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public bool Delete(Company entity)
