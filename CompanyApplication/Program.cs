@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using CompanyApplication.Controller;
+using Domain.Models;
 using Service.Helpers;
 using Service.Services;
 using System;
@@ -9,54 +10,59 @@ namespace CompanyApplication
     {
         static void Main(string[] args)
         {
-            CompanyService companyService = new CompanyService();
+            CompanyController companyController = new CompanyController();
+            EmployeeController employeeController = new EmployeeController();
+
             Helper.WriteToConsole(ConsoleColor.Green, "Please select any option from down below:");
+
             while (true)
             {
-                Helper.WriteToConsole(ConsoleColor.Yellow, "1 - Create Company;   4 - Get Company by ID;         7 - Create Employee;      10 - Delete Employee;  ");
-                Helper.WriteToConsole(ConsoleColor.Yellow, "2 - Update Company;   5 - Get all Company by name;   8 - Update Employee;      11 - Get Employee by age;");
-                Helper.WriteToConsole(ConsoleColor.Yellow, "3 - Delete Company;   6 - Get all Company;           9 - Get Employee by ID;   12 - Get all Employee by Company ID;");
+                GetOptions();
 
                 EnterOptionAgain: string selectOption = Console.ReadLine();
                 int option;
-
                 bool isTrueOption = int.TryParse(selectOption, out option);
 
                 if (isTrueOption)
                 {
                     switch (option)
                     {
-                        case 1:
-                            Helper.WriteToConsole(ConsoleColor.Green, "Please name the company:");
-                            string companyName = Console.ReadLine();
-                            Helper.WriteToConsole(ConsoleColor.Green, "Please write the address of the company:");
-                            string companyAddress = Console.ReadLine();
-                            Company company = new Company
-                            {
-                                Name = companyName,
-                                Address = companyAddress
-                            };
-                            var result = companyService.Create(company);
+                        case (int)OptionEnums.Options.CreateCompany: companyController.Create();                         
+                            break;
 
-                            if(result != null)
-                            {
-                                Helper.WriteToConsole(ConsoleColor.Blue, $"The registration for the company called {company.Name} has been created. "+
-                                                                         $"(Company address: {company.Address}" +
-                                                                         $" The registration ID of the new company is {company.Id}"); ;
-                            }
-                            else
-                            {
-                                Helper.WriteToConsole(ConsoleColor.Red, "Wrong choice");
-                                return;
-                            }
+                        case (int)OptionEnums.Options.UpdateCompany: companyController.Update();
+                            break;
 
+                        case (int)OptionEnums.Options.DeleteCompany: companyController.Delete();
                             break;
-                        case 2:
+
+                        case (int)OptionEnums.Options.GetCompanyByID: companyController.GetById();                                                       
                             break;
-                        case 3:
+
+                        case (int)OptionEnums.Options.GetAllCompanyByName: companyController.GetAllByName();   
                             break;
-                        case 4:
+
+                        case (int)OptionEnums.Options.GetAllCompany: companyController.GetAll();   
                             break;
+
+                        case (int)OptionEnums.Options.CreateEmployee: employeeController.Create();   
+                            break;
+
+                        case (int)OptionEnums.Options.UpdateEmployee: employeeController.Update();   
+                            break;
+
+                        case (int)OptionEnums.Options.GetEmployeeByID: employeeController.GetByID();   
+                            break;
+
+                        case (int)OptionEnums.Options.DeleteEmployee: employeeController.Delete();   
+                            break;
+
+                        case (int)OptionEnums.Options.GetEmployeeByAge: employeeController.GetByAge();   
+                            break;
+
+                        case (int)OptionEnums.Options.GetAllEmployeeByCompanyId: employeeController.GetAllByCompanyId();   
+                            break;
+
                         default:
                             break;
                     }
@@ -68,6 +74,13 @@ namespace CompanyApplication
                 }
             }
 
+        }
+
+        private static void GetOptions()
+        {
+            Helper.WriteToConsole(ConsoleColor.Yellow, "1 - Create Company;   4 - Get Company by ID;         7 - Create Employee;      10 - Delete Employee;");
+            Helper.WriteToConsole(ConsoleColor.Yellow, "2 - Update Company;   5 - Get all Company by name;   8 - Update Employee;      11 - Get Employee by age;");
+            Helper.WriteToConsole(ConsoleColor.Yellow, "3 - Delete Company;   6 - Get all Company;           9 - Get Employee by ID;   12 - Get all Employee by Company ID;");
         }
     }
 }
