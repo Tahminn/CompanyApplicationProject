@@ -47,38 +47,66 @@ namespace CompanyApplication.Controller
         }
         public void Delete()
         {
-
-        }
-        public void GetById()
-        {
-            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the ID of the company you want:");
-            string companyId = Console.ReadLine();
-            EnterIdAgain: int id;
+            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the ID of the company you want to remove from the system:");
+            EnterIdAgain: string companyId = Console.ReadLine();
+            int id;
 
             bool isIdTrue = int.TryParse(companyId, out id);
 
             if (isIdTrue)
             {
-                var company1 = _companyService.GetById(id);
-
-                if (company1 == null)
+                var company = _companyService.GetById(id);
+                  
+                if (company == null)
                 {
                     Helper.WriteToConsole(ConsoleColor.Red, "The ID you entered does not match " +
                           "with any registration code in the system, please write an existing ID:");
-                    return;
+                    goto EnterIdAgain;
                 }
                 else
                 {
-                    Helper.WriteToConsole(ConsoleColor.Green, $"The registration ID  :  {company1.Id} ");
-                    Helper.WriteToConsole(ConsoleColor.Green, $"The company name     :  {company1.Name} ");
-                    Helper.WriteToConsole(ConsoleColor.Green, $"The company address  :  {company1.Address} ");
+                    _companyService.Delete(company);
+                    Helper.WriteToConsole(ConsoleColor.Green, $"The company named '{company.Name}' with the registration ID of '{company.Id}' has been removed from the system.");                    
                 }
             }
             else
             {
                 Helper.WriteToConsole(ConsoleColor.Red, "Since the registration Id was specified " +
                                                           "by numbers, Please enter only numbers:");
-                return;
+                goto EnterIdAgain;
+            }
+
+        }
+        public void GetById()
+        {
+            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the ID of the company you want:");
+            EnterIdAgain: string companyId = Console.ReadLine();
+            int id;
+
+            bool isIdTrue = int.TryParse(companyId, out id);
+
+            if (isIdTrue)
+            {
+                var company = _companyService.GetById(id);
+
+                if (company == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "The ID you entered does not match " +
+                          "with any registration code in the system, please write an existing ID:");
+                    goto EnterIdAgain;
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {company.Id} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company name     :  {company.Name} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company address  :  {company.Address} ");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Since the registration Id was specified " +
+                                                          "by numbers, Please enter only numbers:");
+                goto EnterIdAgain;
             }
         }
         public void GetAllByName()
@@ -87,7 +115,26 @@ namespace CompanyApplication.Controller
         }
         public void GetAll()
         {
+            var companies = _companyService.GetAll();
+            foreach (var item in companies)
+            {
+                if (item.Id == 0 || item.Id % 2 == 0)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {item.Id} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company name     :  {item.Name} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company address  :  {item.Address} ");
+                    Console.WriteLine();
 
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.DarkRed, $"The registration ID  :  {item.Id} ");
+                    Helper.WriteToConsole(ConsoleColor.DarkRed, $"The company name     :  {item.Name} ");
+                    Helper.WriteToConsole(ConsoleColor.DarkRed, $"The company address  :  {item.Address} ");
+                    Console.WriteLine();
+                }
+                
+            }
         }
     }
 }

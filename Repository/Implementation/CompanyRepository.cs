@@ -28,7 +28,16 @@ namespace Repository.Implementation
 
         public bool Delete(Company entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                AppDbContext<Company>.datas.Remove(entity);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public Company Get(Predicate<Company> filter = null)
@@ -38,7 +47,7 @@ namespace Repository.Implementation
 
         public List<Company> GetAll(Predicate<Company> filter)
         {
-            throw new NotImplementedException();
+            return filter == null ? AppDbContext<Company>.datas : AppDbContext<Company>.datas.FindAll(filter);
         }
 
         public bool Update(Company entity)
