@@ -9,9 +9,9 @@ namespace Service.Services.Interfaces
     {
         Employee Create(Employee model);
         Employee Update(int id, Employee model);
-        void Delete(Employee model);
+        void Delete(Employee model, int id);
         Employee GetById(int id);
-        Employee GetByAge(int age);
-        List<Employee> GetAllByCompanyID(Predicate<Employee> filter);
+        //Employee GetByAge(int age);
+        //List<Employee> GetAllByCompanyID(Predicate<Employee> filter);
     }
 }

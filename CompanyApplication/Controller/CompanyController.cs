@@ -31,9 +31,9 @@ namespace CompanyApplication.Controller
 
             if (company0 != null)
             {
-                Helper.WriteToConsole(ConsoleColor.Blue, $"The registration for the company named '{company.Name}' " +
-                                                      $"has been created (The company address: {company.Address})." +
-                                                         $"The registration ID of the new company is '{company.Id}'.");
+                Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {company0.Id}");
+                Helper.WriteToConsole(ConsoleColor.Blue, $"The company name     :  {company0.Name}");
+                Helper.WriteToConsole(ConsoleColor.Blue, $"The company address  :  {company0.Address}");
             }
             else
             {
@@ -43,7 +43,38 @@ namespace CompanyApplication.Controller
         }
         public void Update()
         {
+            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the ID of the company you want to update:");
+            EnterIdAgain: string companyId = Console.ReadLine();
+            int id;
+            bool isIdTrue = int.TryParse(companyId, out id);
 
+            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the new name for the company");
+            string newName = Console.ReadLine();
+
+            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the new address for the company");
+            string newAddress = Console.ReadLine();
+            
+            if (isIdTrue)
+            {
+                Company company = new Company
+                {
+                    Name = newName,
+                    Address = newAddress
+                };
+
+                Company newCompany = _companyService.Update(id, company);
+
+                Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {newCompany.Id}");
+                Helper.WriteToConsole(ConsoleColor.Blue, $"The updated name     :  {newCompany.Name}");
+                Helper.WriteToConsole(ConsoleColor.Blue, $"The updated address  :  {newCompany.Address}");
+
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Since the registration Id was specified " +
+                                                          "by numbers, Please enter only numbers:");
+                goto EnterIdAgain;
+            }
         }
         public void Delete()
         {
@@ -112,6 +143,35 @@ namespace CompanyApplication.Controller
         public void GetAllByName()
         {
 
+            Helper.WriteToConsole(ConsoleColor.Green, "Please write down the name of the company you want:");
+            EnterIdAgain: string companyName = Console.ReadLine();
+            int id;
+
+            bool isIdTrue = int.TryParse(companyName, out id);
+
+            if (isIdTrue)
+            {
+                var company = _companyService.GetById(id);
+
+                if (company == null)
+                {
+                    Helper.WriteToConsole(ConsoleColor.Red, "The ID you entered does not match " +
+                          "with any registration code in the system, please write an existing ID:");
+                    goto EnterIdAgain;
+                }
+                else
+                {
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {company.Id} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company name     :  {company.Name} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company address  :  {company.Address} ");
+                }
+            }
+            else
+            {
+                Helper.WriteToConsole(ConsoleColor.Red, "Since the registration Id was specified " +
+                                                          "by numbers, Please enter only numbers:");
+                goto EnterIdAgain;
+            }
         }
         public void GetAll()
         {

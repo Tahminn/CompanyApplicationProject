@@ -9,44 +9,47 @@ namespace Service.Services
 {
     public class CompanyService : ICompanyService
     {
-        private CompanyRepository companyRepository;
+        private CompanyRepository _companyRepository;
         private int count { get; set; }
         public CompanyService()
         {
-            companyRepository = new CompanyRepository();
+            _companyRepository = new CompanyRepository();
         }
 
         public Company Create(Company model)
         {
             model.Id = count;
-            companyRepository.Create(model);
+            _companyRepository.Create(model);
             count++;
             return model;
         }
 
         public void Delete(Company company)
-        {            
-            companyRepository.Delete(company);
+        {
+            _companyRepository.Delete(company);
         }
 
         public Company GetById(int id)
         {
-            return companyRepository.Get(m => m.Id == id);           
+            return _companyRepository.Get(m => m.Id == id);           
         }
 
         public List<Company> GetAllByName(string name)
         {
-            return companyRepository.GetAll(m=>m.Name == name);
+            return _companyRepository.GetAll(m=>m.Name == name);
         }
 
         public Company Update(int id, Company model)
         {
-            throw new NotImplementedException();
+            var company = GetById(id);
+            model.Id = company.Id;
+            _companyRepository.Update(model);
+            return model;
         }
 
         public List<Company> GetAll()
         {
-            return companyRepository.GetAll(null);
+            return _companyRepository.GetAll(null);
         }
     }
 }
