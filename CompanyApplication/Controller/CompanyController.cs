@@ -144,34 +144,26 @@ namespace CompanyApplication.Controller
         {
 
             Helper.WriteToConsole(ConsoleColor.Green, "Please write down the name of the company you want:");
-            EnterIdAgain: string companyName = Console.ReadLine();
-            int id;
-
-            bool isIdTrue = int.TryParse(companyName, out id);
-
-            if (isIdTrue)
+            EnterNameAgain: string companyName = Console.ReadLine();
+            
+            var companies = _companyService.GetAllByName(companyName);
+            if (!string.IsNullOrEmpty(companyName))
             {
-                var company = _companyService.GetById(id);
-
-                if (company == null)
+                foreach (var item in companies)
                 {
-                    Helper.WriteToConsole(ConsoleColor.Red, "The ID you entered does not match " +
-                          "with any registration code in the system, please write an existing ID:");
-                    goto EnterIdAgain;
-                }
-                else
-                {
-                    Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {company.Id} ");
-                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company name     :  {company.Name} ");
-                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company address  :  {company.Address} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The registration ID  :  {item.Id} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company name     :  {item.Name} ");
+                    Helper.WriteToConsole(ConsoleColor.Blue, $"The company address  :  {item.Address} ");
+                    Console.WriteLine();
                 }
             }
             else
             {
-                Helper.WriteToConsole(ConsoleColor.Red, "Since the registration Id was specified " +
-                                                          "by numbers, Please enter only numbers:");
-                goto EnterIdAgain;
-            }
+                Helper.WriteToConsole(ConsoleColor.Red, "The name you entered does not match " +
+                     "with any registration name in the system, please write an existing name:");
+                goto EnterNameAgain;
+            }                 
+
         }
         public void GetAll()
         {

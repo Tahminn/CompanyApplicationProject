@@ -44,9 +44,9 @@ namespace Service.Services
             }
         }
 
-        public void Delete(Employee company)
+        public void Delete(Employee employee)
         {
-            _employeeRepository.Delete(company);
+            _employeeRepository.Delete(employee);
         }
 
         public Employee GetById(int id)
@@ -59,11 +59,12 @@ namespace Service.Services
             return _employeeRepository.GetAll(m => m.Name == name);
         }
 
-        public Employee Update(int id, Employee model)
+        public Employee Update(int id, Employee model, Company company)
         {
-            var company = GetById(id);
-            model.Id = company.Id;
-            _employeeRepository.Update(model);
+            var employee = GetById(id);
+            model.company = company;
+            model.Id = employee.Id;
+            _employeeRepository.Update(id, model, company);
             return model;
         }
 
@@ -72,24 +73,14 @@ namespace Service.Services
             return _employeeRepository.GetAll(null);
         }
 
-        public Employee Create(Employee model)
+        public List<Employee> GetByAge(int age)
         {
-            throw new NotImplementedException();
+            return _employeeRepository.GetAll(m => m.Age == age);
         }
 
-        public void Delete(Employee model, int id)
+        public List<Employee> GetAllByCompanyId(int companyId)
         {
-            throw new NotImplementedException();
+            return _employeeRepository.GetAllByCompanyId(m => m.company.Id == companyId);
         }
-
-        //public Employee GetByAge(int age)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<Employee> GetAllByCompanyID(Predicate<Employee> filter)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

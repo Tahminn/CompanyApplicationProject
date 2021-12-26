@@ -7,11 +7,11 @@ namespace Service.Services.Interfaces
 {
     public interface IEmployeeService
     {
-        Employee Create(Employee model);
-        Employee Update(int id, Employee model);
-        void Delete(Employee model, int id);
+        Employee Create(Employee model, int companyId);
+        void Delete(Employee employee);
         Employee GetById(int id);
-        //Employee GetByAge(int age);
-        //List<Employee> GetAllByCompanyID(Predicate<Employee> filter);
+        List<Employee> GetByAge(int Age);
+        List<Employee> GetAllByCompanyId(int companyId);
+        Employee Update(int id, Employee model, Company company);        
     }
 }
