@@ -34,11 +34,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\tahmi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -60,8 +60,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Domain\\Domain.csproj"
+            "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Domain\\Domain.csproj"
             }
           }
         }

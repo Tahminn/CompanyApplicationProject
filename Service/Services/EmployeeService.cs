@@ -59,12 +59,11 @@ namespace Service.Services
             return _employeeRepository.GetAll(m => m.Name == name);
         }
 
-        public Employee Update(int id, Employee model, Company company)
+        public Employee Update(int id, Employee model)
         {
-            var employee = GetById(id);
-            model.company = company;
+            var employee = GetById(id);    
             model.Id = employee.Id;
-            _employeeRepository.Update(id, model, company);
+            _employeeRepository.Update(model);
             return model;
         }
 

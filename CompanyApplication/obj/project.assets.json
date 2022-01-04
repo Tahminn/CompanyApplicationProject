@@ -71,11 +71,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\CompanyApplication\\CompanyApplication.csproj",
+      "projectUniqueName": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\CompanyApplication\\CompanyApplication.csproj",
       "projectName": "CompanyApplication",
-      "projectPath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\CompanyApplication\\CompanyApplication.csproj",
+      "projectPath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\CompanyApplication\\CompanyApplication.csproj",
       "packagesPath": "C:\\Users\\tahmi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\CompanyApplication\\obj\\",
+      "outputPath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\CompanyApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -97,8 +97,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Service\\Service.csproj"
+            "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Service\\Service.csproj"
             }
           }
         }

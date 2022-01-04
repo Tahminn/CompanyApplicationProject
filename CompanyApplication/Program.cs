@@ -11,9 +11,7 @@ namespace CompanyApplication
         static void Main(string[] args)
         {
             CompanyController companyController = new CompanyController();
-            EmployeeController employeeController = new EmployeeController();
-
-            Helper.WriteToConsole(ConsoleColor.Green, "Please select any option from down below:");
+            EmployeeController employeeController = new EmployeeController();            
 
             while (true)
             {
@@ -78,9 +76,15 @@ namespace CompanyApplication
 
         private static void GetOptions()
         {
+            Helper.WriteToConsole(ConsoleColor.DarkMagenta, "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+            
+            Helper.WriteToConsole(ConsoleColor.Green, "Please select any option from down below:");
+            Console.WriteLine();
             Helper.WriteToConsole(ConsoleColor.Yellow, "1 - Create Company;   4 - Get Company by ID;         7 - Create Employee;      10 - Delete Employee;");
             Helper.WriteToConsole(ConsoleColor.Yellow, "2 - Update Company;   5 - Get all Company by name;   8 - Update Employee;      11 - Get Employee by age;");
             Helper.WriteToConsole(ConsoleColor.Yellow, "3 - Delete Company;   6 - Get all Company;           9 - Get Employee by ID;   12 - Get all Employee by Company ID;");
+            Helper.WriteToConsole(ConsoleColor.DarkMagenta, "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+            Console.WriteLine();
         }
     }
 }

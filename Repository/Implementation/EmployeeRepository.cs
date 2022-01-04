@@ -52,7 +52,7 @@ namespace Repository.Implementation
         {
             return filter == null ? AppDbContext<Employee>.datas[0] : AppDbContext<Employee>.datas.Find(filter);
         }
-        public bool Update(int id, Employee entity, Company company)
+        public bool Update(Employee entity)
         {
             try
             {
@@ -60,14 +60,8 @@ namespace Repository.Implementation
 
                 if (employee != null)
                 {
-                    if (!string.IsNullOrEmpty(entity.Name))
-                        employee.Name = entity.Name;
-
-                    if (!string.IsNullOrEmpty(entity.Surname))
-                        employee.Surname = entity.Surname;
-                        employee.company = company;
-                        employee.Age = entity.Age;
-
+                    if (!string.IsNullOrEmpty(entity.Name)) employee.Name = entity.Name;
+                    if (!string.IsNullOrEmpty(entity.Surname)) employee.Surname = entity.Surname;
                     return true;
                 }
                 else

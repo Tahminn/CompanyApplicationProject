@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aIg7EFp9S6hymY58bBjbXoJY1DxN05mpDCJE2ZJ7XIulwmIWG4iXZXmzkCEolwIF+2Mr7pc8XWubGaG20caHNw==",
+  "dgSpecHash": "6GDqhkTVji8TX9/8WlBP9qRbyatfSR1ooFVSrg+WtK8wCeAE5Q+i6Mc+pFZekT5sM7DZMT2GFeLytZr9025SuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tahmi\\source\\repos\\ConsoleApplicationCompanyTahmin\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\tahmi\\source\\VS\\ConsoleApplicationCompanyTahmin\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
